@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOSTMOROWALI.COM</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#f4f7f5] m-0 p-0">
+
+<!-- Sticky Header Wrapper: Keeps header visible on scroll -->
+<div class="sticky top-0 z-[100] shadow-sm">
+  <!-- Top Banner: Project Tagline -->
+  <div class="bg-[#facc15] text-center text-[11px] font-bold py-2">
+    JARINGAN KOS & CARI TEMAN PATUNGAN MOROWALI • DEKAT IMIP
+  </div>
+  <!-- Header Logo Section -->
+  <div class="px-5 py-4 flex items-center gap-2.5 bg-[#eff6ff] border-b">
+    <div class="w-8 h-8 bg-[#1a1a1a] text-white rounded-[8px] flex items-center justify-center font-bold">K</div>
+    <b class="text-[13px]">KOSTMOROWALI.COM</b><span class="text-[10px] font-normal text-gray-500 tracking-wide">Powered by Naratama Investa</span>
+  </div>
+</div>
+
+<!-- Hero Section: Main Title -->
+<div class="text-center pt-10 pb-6 px-4">
+  <h1 class="text-[36px] font-extrabold leading-[1.05]">Kos Morowali Murah<br>Dekat IMIP IHIP GNI</h1>
+  <!-- PRIMARY BUTTON: Restored -->
+  <button onclick="bukaPopupPatungan()" class="mt-5 bg-[#111111] text-white px-7 py-3 rounded-full text-[13px] font-bold tracking-wide shadow-[0_3px_10px_rgba(0,0,0,0.2)] hover:bg-[#fde047] hover:text-black hover:shadow-[0_8px_20px_rgba(253,224,71,0.4)] hover:-translate-y-1 active:translate-y-0 active:scale-95 transition-all duration-200 ease-out">
+  👥 Cari Teman Patungan
+</button>
+</div>
+
+<!-- Search Bar: Sticky below header -->
+<div class="sticky top-[81px] z-[90] px-4 md:px-8 pb-4 bg-[#f4f7f5]/80 backdrop-blur-md pt-2">
+  <!-- Search Container now forces 1 line on mobile, prevents CARI / KOS stacking -->
+  <div class="bg-white rounded-lg shadow-sm border p-1.5 flex items-center gap-1 max-w-5xl mx-auto">
+    <!-- Input Location -->
+    <div class="flex-1 flex items-center gap-2 px-3 min-w-0">
+      <span class="shrink-0">📍</span>
+      <input id="searchLocation" class="flex-1 py-2.5 text-[13px] outline-none bg-transparent min-w-0" placeholder="Bunta, Bahodopi...">
+    </div>
+    
+    <select id="searchKM" class="shrink-0 text-[12px] font-medium px-2 py-2 outline-none bg-transparent border-l max-w-[90px]">
+      <option value="all">Semua KM</option>
+      <option value="km1">KM 1</option>
+      <option value="dalam">KM Dalam</option>
+    </select>
+    <!-- Search Button -->
+    <button onclick="filterKos()" class="shrink-0 whitespace-nowrap bg-black text-white px-4 md:px-6 py-2.5 rounded-lg text-[12px] md:text-[13px] font-bold">CARI KOS</button>
+  </div>
+  <div class="max-w-5xl mx-auto mt-3 flex justify-between items-center">
+    <h2 id="mainTitle" class="text-[13px] font-bold">Semua Kos</h2>
+    <span id="resultCount" class="text-[11px] text-stone-500"></span>
+  </div>
+</div>
+
+<!-- Main Grid -->
+<div id="kosGrid" class="px-4 md:px-8 pb-24 grid md:grid-cols-3 gap-5 max-w-7xl mx-auto min-h-[400px]"></div>
+<div id="emptyState" class="hidden text-center py-20 text-[13px]"></div>
+</div>
+</div>
+<!-- PATUNGAN SECTION -->
+<div class="px-4 md:px-8 pb-4 mt-4">
+  <div id="listPatungan" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+</div>
+<!-- Floating Patungan Button - SECONDARY BUTTON -->
+<div class="fixed bottom-[56px] right-3 z-[95]">
+  <button onclick="bukaPopupPatungan()" class="bg-[#facc15] text-black px-4 py-2.5 rounded shadow-[0_6px_16px_rgba(0,0,0,0.25)] text-[11px] font-bold active:scale-95 transition">
+    👥 Cari Patungan
+  </button>
+</div>
+
+<!-- Footer -->
+<div class="fixed bottom-0 left-0 right-0 z-[90] bg-black text-white px-3 py-2.5 flex items-center justify-between gap-2 border-t border-stone-800">
+  <h2 class="font-bold text-[11px] leading-[1.2] truncate">daftarkan kos anda gratis!</h2>
+  <button onclick="bukaPopupKos()" class="shrink-0 bg-white text-black px-3.5 py-1.5 rounded text-[10px] font-bold">daftar sekarang</button>
+</div>
+
+ <!-- spacer -->
+<div class="h-[90px]"></div>
+<div id="popupKos" class="hidden"></div>
+<div id="popupPatungan" class="hidden"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
