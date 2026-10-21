@@ -104,7 +104,7 @@ function renderKos(list){
       <p class="font-bold text-[12px] mt-1">${k.harga==0?'Hubungi':'Rp '+Number(k.harga).toLocaleString('id-ID')}</p>
       <div class="flex gap-2 mt-2">
         <a href="https://wa.me/${(k.kontak||k.wa||'').toString().replace(/[^0-9]/g,'')}" target="_blank" class="flex-1 bg-green-800 text-white text-center text-[11px] py-2 rounded-lg">Chat WA</a>
-        ${k.maps?`<a href="${k.maps}" target="_blank" class="px-3 bg-blue-50 text-blue-600 text-[11px] py-2 rounded-lg">📍 Maps</a>`:''}
+        ${k.maps?`<a href="${k.maps}" target="_blank" class="px-5 bg-white border border-blue-500 text-blue-600 text-[11px] py-2 rounded-lg">📍 Maps</a>`:''}
       </div>
     </div>
   </div>`).join('')
