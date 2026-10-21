@@ -2,7 +2,7 @@
 
 Live in Morowali, Central Sulawesi - the biggest nickel producer in the world? Finding a Kos is hard. I built the solution.
 
-**Live Demo:** https://Muh-Dudy-Firmansyah.github.io/kosmorowali/ (coming soon)
+**Live Demo:** https://Muh-Dudy-Firmansyah.github.io/kosmorowali/ 
 
 ### 🚀 Problem Solved
 - No centralized platform for Kos in industrial area
