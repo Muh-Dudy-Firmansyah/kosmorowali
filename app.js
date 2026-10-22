@@ -285,3 +285,9 @@ async function handlePatungan(e){
   const {error}=await supabaseClient.from('patungan').insert(payload);
   if(error) alert(error.message); else { alert('Patungan posted!'); tutupPopup(); renderGuestList(); }
 }
+// ===== PWA REGISTER =====
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').then(() => console.log('SW ready')).catch(()=>{});
+  });
+}
