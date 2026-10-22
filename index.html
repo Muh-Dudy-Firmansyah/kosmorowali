@@ -11,12 +11,12 @@
 </head>
 <body class="bg-[#f4f7f5] m-0 p-0">
 
-<!-- 1. TOP BANNER - STICKY PALING ATAS -->
+<!-- 1. TOP BANNER -->
 <div class="sticky top-0 z-[100] bg-[#111827]/95 backdrop-blur-md text-[11px] text-center text-[#facc15] font-bold py-2.5 tracking-widest uppercase border-b border-white/10">
   JARINGAN KOS & CARI TEMAN PATUNGAN MOROWALI • DEKAT IMIP
 </div>
 
-<!-- 2. HEADER LOGO - STICKY DI BAWAH BANNER -->
+<!-- 2. HEADER LOGO -->
 <div class="sticky top-[32px] z-[99] px-5 py-3.5 flex items-center gap-2.5 bg-[#fff6ff] border-b shadow-sm">
   <div class="w-8 h-8 bg-[#facc15] text-white rounded-[8px] flex items-center justify-center shrink-0">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-[18px] h-[18px]">
@@ -27,16 +27,26 @@
   <b class="text-[13px]">KOSMOROWALI.COM</b><span class="text-[10px] font-normal text-gray-500 tracking-wide inline"> Powered by Naratama Investa Inc</span>
 </div>
 
-<!-- Hero Section -->
-<div class="text-center pt-10 pb-6 px-4">
-  <h1 class="text-[36px] font-extrabold leading-[1.05]">Kos Morowali Murah<br>Dekat IMIP IHIP GNI</h1>
-  <button onclick="bukaPopupPatungan()" class="mt-4 bg-[#111111] text-white px-4 py-2 rounded-[8px] text-[11px] font-bold tracking-wide shadow-sm hover:bg-[#fde047] hover:text-black hover:scale-[1.03] active:scale-95 transition-all duration-200 cursor-pointer">
-  👥 Cari Teman Patungan
-</button>
+<!-- 2.5 INSTALL BAR - BARU! POSISI DI BAWAH LOGO, DI ATAS HERO -->
+<div id="installBar" style="display:none" class="sticky top-[88px] z-[98] px-4 py-2.5 bg-white border-b border-gray-200 flex items-center justify-between shadow-sm">
+  <div class="flex items-center gap-2">
+    <span class="text-[12px]">📲</span>
+    <div class="leading-tight">
+      <p class="text-[12px] font-bold">Install Aplikasi Kos Morowali</p>
+      <p class="text-[10px] text-gray-500">Lebih cepat, tanpa buka browser</p>
+    </div>
+  </div>
+  <button id="installBtn" class="shrink-0 bg-[#FF6B00] text-white text-[11px] font-extrabold px-5 py-2 rounded-full animate-pulse">INSTALL</button>
 </div>
 
-<!-- 3. SEARCH BAR - STICKY DI BAWAH HEADER LOGO, GAK KEPOTONG LAGI -->
-<div class="sticky top-[84px] z-[90] px-4 md:px-8 pb-4 bg-[#f4f7f5]/90 backdrop-blur-md pt-2">
+<!-- Hero -->
+<div class="text-center pt-10 pb-6 px-4">
+  <h1 class="text-[36px] font-extrabold leading-[1.05]">Kos Morowali Murah<br>Dekat IMIP IHIP GNI</h1>
+  <button onclick="bukaPopupPatungan()" class="mt-4 bg-[#111111] text-white px-4 py-2 rounded-[8px] text-[11px] font-bold tracking-wide shadow-sm">👥 Cari Teman Patungan</button>
+</div>
+
+<!-- 3. SEARCH BAR - GUA TURUNIN JADI top-[132px] BIAR GAK TABRAKAN -->
+<div class="sticky top-[132px] z-[90] px-4 md:px-8 pb-4 bg-[#f4f7f5]/90 backdrop-blur-md pt-2">
   <div class="bg-white rounded-xl shadow-sm border p-1.5 flex items-center gap-1 max-w-5xl mx-auto overflow-visible">
     <div class="flex-1 flex items-center gap-2 px-3 min-w-0">
       <span class="shrink-0">📍</span>
@@ -47,9 +57,7 @@
       <option value="km1">KM Luar</option>
       <option value="dalam">KM Dalam</option>
     </select>
-    <button onclick="filterKos()" class="shrink-0 bg-[#111827] text-white px-6 py-2.5 rounded-[8px] font-bold text-[13px] hover:bg-[#FACC15] hover:text-black hover:scale-[1.05] active:scale-[0.95] transition-all duration-200 shadow-md hover:shadow-[0_0_20px_rgba(250,204,21,0.5)] cursor-pointer whitespace-nowrap">
-  CARI KOS
-</button>
+    <button onclick="filterKos()" class="shrink-0 bg-[#111827] text-white px-6 py-2.5 rounded-[8px] font-bold text-[13px]">CARI KOS</button>
   </div>
   <div class="max-w-5xl mx-auto mt-3 flex justify-between items-center">
     <h2 id="mainTitle" class="text-[13px] font-bold">Semua Kos</h2>
@@ -57,22 +65,15 @@
   </div>
 </div>
 
-<!-- Main Grid -->
 <div id="kosGrid" class="px-4 md:px-8 pb-24 grid md:grid-cols-3 gap-5 max-w-7xl mx-auto min-h-[400px]"></div>
 
-<!-- Floating Patungan Button - UDAH GAK KUNING TAI LAGI -->
 <div class="fixed bottom-[56px] right-3 z-[95]">
-  <button onclick="bukaPopupPatungan()" class="bg-white border border-black text-black px-4 py-2.5 rounded-full shadow-lg text-[11px] font-bold hover:bg-[#16a34a] hover:text-white hover:border-[#16a34a] hover:scale-[1.05] hover:shadow-[0_0_20px_rgba(22,163,74,0.4)] active:scale-95 transition-all duration-200 cursor-pointer">
-    👥 Cari Patungan
-  </button>
+  <button onclick="bukaPopupPatungan()" class="bg-white border border-black text-black px-4 py-2.5 rounded-full shadow-lg text-[11px] font-bold">👥 Cari Patungan</button>
 </div>
 
-<!-- Footer -->
 <div class="fixed bottom-0 left-0 right-0 z-[90] bg-black text-white px-3 py-2.5 flex items-center justify-between gap-2 border-t border-stone-800">
   <h2 class="font-bold text-[11px] leading-[1.2] truncate">daftarkan kos anda gratis!</h2>
- <button onclick="bukaPopupKos()" class="shrink-0 bg-white text-black px-3.5 py-1.5 rounded text-[10px] font-bold hover:bg-[#FACC15] hover:text-black hover:scale-[1.05] hover:shadow-[0_0_15px_rgba(250,204,21,0.6)] active:scale-95 transition-all duration-200 cursor-pointer">
-  daftar sekarang
-</button>
+  <button onclick="bukaPopupKos()" class="shrink-0 bg-white text-black px-3.5 py-1.5 rounded text-[10px] font-bold">daftar sekarang</button>
 </div>
 
 <div class="h-[90px]"></div>
@@ -81,5 +82,22 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="data.js"></script>
 <script src="app.js"></script>
+
+<!-- SCRIPT PWA INSTALL - INI KUNCINYA -->
+<script>
+let deferredPrompt;
+const bar = document.getElementById('installBar');
+const btn = document.getElementById('installBtn');
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+function showBar(){ if(!isStandalone && bar) bar.style.display='flex'; }
+window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; showBar(); });
+setTimeout(() => { if(!isStandalone && bar && bar.style.display === 'none'){ showBar(); } }, 2000);
+btn?.addEventListener('click', async () => {
+  if (deferredPrompt) { deferredPrompt.prompt(); const { outcome } = await deferredPrompt.userChoice; if (outcome === 'accepted') bar.style.display = 'none'; deferredPrompt = null; }
+  else { alert('Klik titik 3 di Chrome > Tambahkan ke Layar Utama'); }
+});
+window.addEventListener('appinstalled', () => { if(bar) bar.style.display = 'none'; });
+</script>
+
 </body>
 </html>
