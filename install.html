@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Install Aplikasi</title>
+<link rel="manifest" href="./manifest.json">
+</head>
+<body style="font-family:sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; text-align:center; padding:20px;">
+  <h1 style="font-size:24px; font-weight:bold;">Install Aplikasi</h1>
+  <p style="margin-top:8px; color:#666;">Kos Morowali</p>
+  <button id="btn" style="margin-top:30px; width:100%; max-width:300px; background:#FF6B00; color:white; border:none; padding:18px; border-radius:50px; font-size:18px; font-weight:bold;">INSTALL APLIKASI</button>
+  <p id="fb" style="display:none; margin-top:20px; color:red; font-size:13px;">Buka dari Facebook? Klik titik 3 > Buka di Chrome</p>
+<script>
+let promptEvent;
+const btn=document.getElementById('btn');
+const fb=document.getElementById('fb');
+if(/FBAN|FBAV|FB_IAB/i.test(navigator.userAgent)) fb.style.display='block';
+window.addEventListener('beforeinstallprompt', e=>{ e.preventDefault(); promptEvent=e; btn.textContent='INSTALL APLIKASI - READY'; });
+btn.addEventListener('click', async()=>{
+ if(promptEvent){ promptEvent.prompt(); const r=await promptEvent.userChoice; if(r.outcome==='accepted') location.href='/'; promptEvent=null; }
+ else{ alert('Chrome: Titik 3 > Tambahkan ke Layar Utama'); }
+});
+</script>
+</body>
+</html>
